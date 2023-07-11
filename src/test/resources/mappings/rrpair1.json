@@ -1,0 +1,22 @@
+{
+	"priority":2,
+	"request": {
+		"method": "POST",
+		"urlPathPattern": "/api/mytest/.*",
+		"bodyPatterns": [
+            {
+                "matchesJsonPath" : "$[?(@.name == 'ANY')]"
+            },
+	    { 
+		"matchesJsonPath" : {
+         			"expression": "$.phone",
+		                "contains": "99"
+      		}
+	    }
+	]
+	},
+	"response":{
+		"status":200,
+		"bodyFileName":"response1.json"
+	}
+}

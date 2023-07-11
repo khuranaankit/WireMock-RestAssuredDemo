@@ -1,0 +1,26 @@
+{
+	"priority":1,
+	"request": {
+		"method": "POST",
+		"urlPathPattern": "/api/mytest/User1",
+		"bodyPatterns": [
+            {
+                "matchesJsonPath" : "$[?(@.name == 'ANY')]"
+            },
+	    { 
+		"matchesJsonPath" : {
+         			"expression": "$.phone",
+		                "contains": "99"
+      		}
+	    }
+	]
+	},
+	"response":{
+		"status":200,
+		"jsonBody": {
+          		"arbitrary_json": "{{jsonPath request.body '$.name'}}",
+			"phone" : "{{jsonPath request.body '$.phone'}}",
+			"path" : "{{request.path.[1]}}"
+        	}
+	}
+}

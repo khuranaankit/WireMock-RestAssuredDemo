@@ -1,0 +1,5 @@
+{
+  "arbitrary_json": "{{jsonPath request.body '$.name'}}",
+  "phone" : "{{jsonPath request.body '$.phone'}}",
+  "path" : "{{request.path.[2]}}"
+}
